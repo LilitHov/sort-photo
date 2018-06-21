@@ -1,28 +1,67 @@
+body {
+    background: #c9d8e0 !important;
+}
+
 .App {
-  text-align: center;
+    text-align: center;
+    margin-top: 15px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+/*custom css*/
+/*.App-sort-photos-overall {*/
+    /*background: #0C2B3B;*/
+    /*color: #2892C7;*/
+    /*padding: 5px 15px 10px;*/
+    /*border-radius: 10px;*/
+/*}*/
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+/*search part*/
+/*.App-search-block {*/
+    /*padding: 30px 26px;*/
+/*}*/
 
-.App-title {
-  font-size: 1.5em;
-}
+/*.App-search-block input {*/
+    /*width: 80% !important;*/
+    /*margin-right: 40px;*/
+/*}*/
 
-.App-intro {
-  font-size: large;
-}
+/*.App-search-block input:focus {*/
+    /*border-color: #0C2B3B;*/
+    /*box-shadow: none;*/
+/*}*/
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+/*.btn-search {*/
+    /*background: #61DAFB !important;*/
+    /*color: #0C2B3B;*/
+    /*border: none;*/
+/*}*/
+
+/*.btn-search:hover {*/
+    /*background: #49b9d1;*/
+    /*box-shadow: none;*/
+/*}*/
+
+/*search part*/
+/*sorting-photos*/
+/*.sorting-photos {*/
+    /*padding: 5px 10px;*/
+    /*height: 380px;*/
+    /*border: 1px dashed #61DAFB;*/
+/*}*/
+
+/*sorting-photos*/
+/*sorted-block*/
+/*.sorted-block {*/
+    /*height: 200px;*/
+    /*border: 1px dashed #61DAFB;*/
+    /*margin-top: 15px;*/
+/*}*/
+
+/*sorted-block*/
+/*common styles*/
+/*.sorting-photos span,*/
+/*.sorted-block span {*/
+    /*font-size: 32px;*/
+/*}*/
+
+/*common styles*/
