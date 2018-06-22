@@ -6,62 +6,10 @@ body {
     text-align: center;
     margin-top: 15px;
 }
+.searchedItem{
+    margin:5px 0 15px;
+}
+.searchedItem > img {
+    width: 150px;
+}
 
-/*custom css*/
-/*.App-sort-photos-overall {*/
-    /*background: #0C2B3B;*/
-    /*color: #2892C7;*/
-    /*padding: 5px 15px 10px;*/
-    /*border-radius: 10px;*/
-/*}*/
-
-/*search part*/
-/*.App-search-block {*/
-    /*padding: 30px 26px;*/
-/*}*/
-
-/*.App-search-block input {*/
-    /*width: 80% !important;*/
-    /*margin-right: 40px;*/
-/*}*/
-
-/*.App-search-block input:focus {*/
-    /*border-color: #0C2B3B;*/
-    /*box-shadow: none;*/
-/*}*/
-
-/*.btn-search {*/
-    /*background: #61DAFB !important;*/
-    /*color: #0C2B3B;*/
-    /*border: none;*/
-/*}*/
-
-/*.btn-search:hover {*/
-    /*background: #49b9d1;*/
-    /*box-shadow: none;*/
-/*}*/
-
-/*search part*/
-/*sorting-photos*/
-/*.sorting-photos {*/
-    /*padding: 5px 10px;*/
-    /*height: 380px;*/
-    /*border: 1px dashed #61DAFB;*/
-/*}*/
-
-/*sorting-photos*/
-/*sorted-block*/
-/*.sorted-block {*/
-    /*height: 200px;*/
-    /*border: 1px dashed #61DAFB;*/
-    /*margin-top: 15px;*/
-/*}*/
-
-/*sorted-block*/
-/*common styles*/
-/*.sorting-photos span,*/
-/*.sorted-block span {*/
-    /*font-size: 32px;*/
-/*}*/
-
-/*common styles*/

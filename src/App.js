@@ -2,39 +2,49 @@ import React,{Component} from 'react';
 import './App.css';
 // import elements from bootstrap
 import {Container, Row, Col, Form, FormGroup, Button} from 'reactstrap';
-
+// Import default Bootstrap 4 CSS
+import 'bootstrap/dist/css/bootstrap.css';
+import Gallery from './Gallery'
 
 
 
 class App extends Component {
     render() {
         return (
-            <div className='App'>
-                <Container>
-                    <Row className="show-grid">
-                        <Col xs={12} sm={8} smoffset={2} style={styles.sortPhotosOverall}>
-                            <div style={styles.searchBlock}>
-                                <Form method='post' action='https://www.google.com/search'>
-                                    <FormGroup>
-                                        <input type="text" placeholder={content.searchPlaceholder} style={styles.searchBlockInput} className='form-control-lg'/>
-                                        <Button type="submit" style={styles.btnSearch}>{content.search}</Button>
-                                    </FormGroup>
-                                </Form>
-                            </div>
-                            <div style={styles.sortingPhotos}>
-                                   <span style={styles.sortSpan}>
-                                       {content.searchPics}
-                                    </span>
-                            </div>
-                            <div style={styles.sortedBlock}>
-                                    <span style={styles.sortSpan}>
-                                        {content.selectedPhotos}
-                                      </span>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
+<div className='App'>
+    <Container>
+        <Row className="show-grid">
+            <Col xs={12}  style={STYLES.sortPhotosOverall}>
+                <div style={STYLES.searchBlock}>
+                    <Form method='post' action='https://www.google.com/search'>
+                        <FormGroup>
+                            <input type="text" placeholder={CONTNET.searchPlaceholder} style={STYLES.searchBlockInput} className='form-control-lg'/>
+                            <Button type="submit" style={STYLES.btnSearch}>{CONTNET.search}</Button>
+                        </FormGroup>
+                    </Form>
+                </div>
+                <Row className="show-grid">
+                    <Col xs={12} sm={12} md={8}>
+                        <div style={STYLES.sortingPhotos}>
+                       <span style={STYLES.sortSpan}>
+
+                           {CONTNET.searchPics}
+                           <Gallery />
+                        </span>
+                        </div>
+                    </Col>
+                    <Col xs={12} sm={12} md={4}>
+                        <div style={STYLES.sortedBlock}>
+                        <span style={STYLES.sortSpan}>
+                            {CONTNET.selectedPhotos}
+                          </span>
+                        </div>
+                    </Col>
+                </Row>
+            </Col>
+        </Row>
+    </Container>
+</div>
         )
     }
 }
@@ -43,7 +53,7 @@ class App extends Component {
 
 
 // content
-const content = {
+const CONTNET = {
     searchPlaceholder:'Search images from Flickr.com',
     search: 'Search',
     searchPics:'Search pics to sort',
@@ -53,7 +63,7 @@ const content = {
 
 
 // styles
-const styles = {
+const STYLES = {
     sortPhotosOverall: {
         background: '#0C2B3B',
         color: '#2892C7',
@@ -86,22 +96,21 @@ const styles = {
     // },
     sortingPhotos:{
         padding: '5px 10px',
-        height: 380,
+        height: 'auto',
         border: '1px dashed #61DAFB'
     },
     sortedBlock:{
-        height: 250,
+        height: '100%',
         border: '1px dashed #61DAFB',
-        marginTop: 15
     },
     'sortSpan':{
-    fontSize:32
-     },
+        fontSize:32
+    },
 
 };
 // styles
 
 
 
-
 export default App;
+
