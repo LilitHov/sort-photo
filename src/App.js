@@ -1,37 +1,54 @@
 import React,{Component} from 'react';
 import './App.css';
 // import elements from bootstrap
-import {Container, Row, Col, Form, FormGroup, Button} from 'reactstrap';
+import { Row, Col, Form, FormGroup, Button} from 'reactstrap';
 // Import default Bootstrap 4 CSS
 import 'bootstrap/dist/css/bootstrap.css';
-import Gallery from './Gallery'
+import Gallery from './Gallery';
+import Baskets from './Baskets';
 
 
 
 class App extends Component {
+    constructor(props){
+        super(props);
+        this.submit = this.submit.bind(this);
+        this.child = React.createRef();
+        this.state = {
+            search : ''
+        }
+
+    }
+    submit() {
+        this.setState({
+            search : this.search.value
+        });
+    }
     render() {
         return (
 <div className='App'>
-    <Container>
+    <div>
         <Row className="show-grid">
-            <Col xs={12}  style={STYLES.sortPhotosOverall}>
+            <Col xs={12} sm={{size:10, offset:1}}  style={STYLES.sortPhotosOverall}>
                 <div style={STYLES.searchBlock}>
-                    <Form method='post' action='https://www.google.com/search'>
+                    <Form>
                         <FormGroup>
-                            <input type="text" placeholder={CONTNET.searchPlaceholder} style={STYLES.searchBlockInput} className='form-control-lg'/>
-                            <Button type="submit" style={STYLES.btnSearch}>{CONTNET.search}</Button>
+                            <input type="text" ref={(input) => this.search = input} name="search" placeholder={CONTNET.searchPlaceholder} style={STYLES.searchBlockInput} className='form-control-lg'/>
+                            <Button  onClick={this.submit} style={STYLES.btnSearch}>{CONTNET.search}</Button>
                         </FormGroup>
                     </Form>
                 </div>
                 <Row className="show-grid">
-                    <Col xs={12} sm={12} md={8}>
+                    <Col xs={12} sm={12} md={6}>
                         <div style={STYLES.sortingPhotos}>
                        <span style={STYLES.sortSpan}>
-
                            {CONTNET.searchPics}
-                           <Gallery />
+                           <Gallery  search={this.state.search} />
                         </span>
                         </div>
+                    </Col>
+                    <Col xs={12} sm={12} md={2}>
+                        <Baskets/>
                     </Col>
                     <Col xs={12} sm={12} md={4}>
                         <div style={STYLES.sortedBlock}>
@@ -43,7 +60,7 @@ class App extends Component {
                 </Row>
             </Col>
         </Row>
-    </Container>
+    </div>
 </div>
         )
     }
@@ -113,4 +130,3 @@ const STYLES = {
 
 
 export default App;
-
