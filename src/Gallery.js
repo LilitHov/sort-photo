@@ -27,10 +27,9 @@ class Gallery extends React.Component {
         this.axios();
     }
 
-
     axios()
     {
-        console.log(this.props);
+        // console.log(this.props);
         let url = 'https://api.flickr.com/services/rest' +
             '?sort=relevance' +
             '&parse_tags=1' +
@@ -43,7 +42,7 @@ class Gallery extends React.Component {
             '&viewerNSID=' +
             '&method=flickr.photos.search' +
             '&csrf=' +
-            '&api_key=9c57468fb1ebdf940881ebeedaebb831' +
+            '&api_key=fa75449c99869cb650fcc8a2c2f51b3d' +
             '&format=json' +
             '&hermes=1' +
             '&hermesClient=1' +
@@ -61,10 +60,10 @@ class Gallery extends React.Component {
             });
     }
 
+
     render() {
         return (
             <Row >
-                {/*using ES6 map()*/}
                 { this.state.photos.map(function(photo,index) {
                         if (index<10){
                             return(
@@ -81,3 +80,6 @@ class Gallery extends React.Component {
 }
 
 export default Gallery;
+
+
+

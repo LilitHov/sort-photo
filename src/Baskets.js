@@ -4,11 +4,19 @@ import './App.css';
 
 
 class Baskets extends React.Component {
+    constructor(props){
+        super(props);
+        //console.log(this.props)
+    }
+
+
+
+
     render() {
         return (
             <div className="basketElems">
-                <Col>Basket1</Col>
-                <Col>Basket2</Col>
+                <Col>{this.props.first}</Col>
+                {/*<Col>{secondWord}</Col>*/}
             </div>
         )
     }

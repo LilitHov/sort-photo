@@ -11,6 +11,7 @@ body {
 }
 .searchedItem > img {
     width: 140px;
+    height: 150px;
 }
 
 .basketElems{
