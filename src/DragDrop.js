@@ -1,115 +1,74 @@
 import React from 'react';
-import { Draggable, Droppable } from 'react-drag-and-drop';
-
-// let element = ['num','kum','zoom','apook'];
-// let index = element.indexOf('kum');
-// console.log(element);
-// element.splice(index,1);
-// console.log(element);
+import {Droppable} from 'react-drag-and-drop';
+import Gallery from './Gallery';
 
 
 class DragDrop extends React.Component {
-    constructor(props)
-    {
+
+    constructor(props) {
         super(props);
         this.state = {
-            allowable : 'apple',
-            selectedPhotos:[
-                'banana','apple','orange','apple','apple'
-
-            ],
-            draggPhotos:[
-                'cat','dog','bear'
-            ]
-
+            draggPhotos: []
         }
     }
 
-
-
-
-
-    componentWillReceiveProps()
-    {
+    componentWillReceiveProps() {
         this.setState({
-            allowable: this.props.allowable,
+            search: this.props.search,
         })
     }
-
-    removePeople(elem){
-
-       let array = this.state.selectedPhotos;
-       let index = array.indexOf(elem); // Let's say it's Bob.
-        array.slice(index,1);
-    };
 
 
     render() {
         return (
+
             <div>
-                <ul>
-                        { this.state.selectedPhotos.map(function(photo,index) {
-                                return(
-                                    <Draggable type="fruit" data={photo}>
-                                    <li key={index}>
-                                        {photo}
-                                    </li>
-                                    </Draggable>
-                                )
-                            }
-                        )}
-                </ul>
+                <Gallery search={this.props.search}/>
                 <Droppable className="basketElems"
-                     types={['fruit']} // <= allowed drop types
-                     onDrop={this.onDrop.bind(this)} >
-                    <div>cat</div>
-                    {/*<Col>{secondWord}</Col>*/}
+                           types={['img']}
+                           onDrop={this.onDrop.bind(this)}>
+                    <div>{this.props.search}</div>
                 </Droppable>
                 <div>
                     <ul className="Smoothie">
-                        { this.state.draggPhotos.map(function(photo,index) {
-                                    return(
-                                        <li key={index}>
-                                            {photo}
-                                        </li>
-                                    )
+                        {this.state.draggPhotos.map(function (photo, index) {
+                                return (
+                                    <li key={index}>
+                                        {photo}
+                                    </li>
+                                )
                             }
                         )}
                     </ul>
-
-
-
                 </div>
             </div>)
-
     }
 
-
     onDrop(data) {
+        let regExp = this.props.search.toLowerCase();
+        let searchWord = data.img.toLowerCase();
+        let findPlace = searchWord.search(regExp);
 
-        if (data.fruit === this.state.allowable)
-        {
+
+        console.log(this.props);
+        if ( findPlace !== -1 ) {
             alert(true);
-          //  add a selected item to selectedPhotos
             this.setState({
-                draggPhotos: [...this.state.draggPhotos, data.fruit]
+                draggPhotos: [...this.state.draggPhotos, data.img]
 
             });
-            let index = this.state.selectedPhotos.indexOf(data.fruit);
-            this.state.selectedPhotos.splice(index,1);
 
-            this.setState({
-                selectedPhotos:[...this.state.selectedPhotos]
-            });
-
-
-
-        }else{
+            // delete item from state array
+            // let index = this.state.selectedPhotos.indexOf(data.img);
+            // this.state.selectedPhotos.splice(index,1);
+            // this.setState({
+            //     selectedPhotos:[...this.state.selectedPhotos]
+            // });
+            // delete item from state array
+        } else {
             alert(false)
         }
     }
-
 }
 
 export default DragDrop;
-

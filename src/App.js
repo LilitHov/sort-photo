@@ -4,8 +4,6 @@ import './App.css';
 import {Row, Col, Form, FormGroup, Button} from 'reactstrap';
 // Import default Bootstrap 4 CSS
 import 'bootstrap/dist/css/bootstrap.css';
-import Gallery from './Gallery';
-import Baskets from './Baskets';
 import DragDrop from './DragDrop';
 
 
@@ -46,26 +44,15 @@ class App extends Component {
                                 </Form>
                             </div>
                             <Row className="show-grid">
-                                <Col xs={12} sm={12} md={6}>
+                                <Col xs={12} sm={12} md={12}>
                                     <div style={STYLES.sortingPhotos}>
-                       <span style={STYLES.sortSpan}>
-                           {CONTNET.searchPics}
-                           <Gallery search={this.state.search}/>
-                        </span>
-                                    </div>
-                                </Col>
-                                <Col xs={12} sm={12} md={2}>
-                                    <Baskets first={this.state.first}/>
-                                </Col>
-                                <Col xs={12} sm={12} md={4}>
-                                    <div style={STYLES.sortedBlock}>
-                        <span style={STYLES.sortSpan}>
-                            {CONTNET.selectedPhotos}
-                          </span>
+                                              <span style={STYLES.sortSpan}>
+                                                          {CONTNET.searchPics}
+                                                  </span>
                                     </div>
                                 </Col>
                                 <Col>
-                                    <DragDrop allowable={this.state.search}/>
+                                    <DragDrop search={this.state.search}/>
                                 </Col>
                             </Row>
                         </Col>
@@ -137,6 +124,3 @@ const STYLES = {
 
 
 export default App;
-
-
-
